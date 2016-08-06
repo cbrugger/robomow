@@ -23,25 +23,25 @@ noble.on('discover', function(peripheral) {
 		        console.log('discovered the following characteristics:');
 		        for (var i in characteristics) {
 		          console.log('  ' + i + ' uuid: ' + characteristics[i].uuid);
-//		          if (characteristics[i].uuid == '2a00') { 
-//			          var manufacturerNameCharacteristic = characteristics[i];
-//			          console.log('discovered manufacturer name characteristic');
-//	
-//			          manufacturerNameCharacteristic.read(function(error, data) {
-//			            // data is a buffer
-//			            console.log('manufacture name is: ' + data.toString('utf8'));
-//			          });
-//		          }
-//		          
-//		          if (characteristics[i].uuid == '2a01') { 
-//			          var manufacturerNameCharacteristic = characteristics[i];
-//			          console.log('discovered appearance name characteristic');
-//	
-//			          manufacturerNameCharacteristic.read(function(error, data) {
-//			            // data is a buffer
-//			            console.log('appearance is: ' + data.toString('utf8'));
-//			          });
-//		          }
+		          if (characteristics[i].uuid == '2a00') { 
+			          var manufacturerNameCharacteristic = characteristics[i];
+			          console.log('discovered manufacturer name characteristic');
+	
+			          manufacturerNameCharacteristic.read(function(error, data) {
+			            // data is a buffer
+			            console.log('manufacture name is: ' + data.toString('utf8'));
+			          });
+		          }
+		          
+		          if (characteristics[i].uuid == '2a01') { 
+			          var manufacturerNameCharacteristic = characteristics[i];
+			          console.log('discovered appearance name characteristic');
+	
+			          manufacturerNameCharacteristic.read(function(error, data) {
+			            // data is a buffer
+			            console.log('appearance is: ' + data.toString('utf8'));
+			          });
+		          }
 		        }
 		      });
 		    });
@@ -77,7 +77,9 @@ noble.on('discover', function(peripheral) {
 // }
 
   
-  
+	  peripheral.disconnect(function(error) {
+	       console.log('disconnected from peripheral: ' + peripheral.uuid);
+	    });
   console.log();
 });
 

@@ -8,19 +8,17 @@ noble.on('stateChange', function(state) {
   }
 });
 
-noble.on('characteristicsDiscover', function(characteristic) {
-	console.log('peripheral discovered (' + JSON.stringify(characteristic) + ');
-}
-
 noble.on('discover', function(peripheral) {
-  console.log('peripheral discovered (' + peripheral.id +
-              ' with address <' + peripheral.address +  ', ' + peripheral.addressType + '>,' +
-              ' connectable ' + peripheral.connectable + ',' +
-              ' RSSI ' + peripheral.rssi + ':');
-  console.log('\thello my local name is:');
-  console.log('\t\t' + peripheral.advertisement.localName);
-  console.log('\tcan I interest you in any of the following advertised services:');
-  console.log('\t\t' + JSON.stringify(peripheral.advertisement.serviceUuids));
+	console.log(JSON.stringify(peripheral));
+	
+//  console.log('peripheral discovered (' + peripheral.id +
+//              ' with address <' + peripheral.address +  ', ' + peripheral.addressType + '>,' +
+//              ' connectable ' + peripheral.connectable + ',' +
+//              ' RSSI ' + peripheral.rssi + ':');
+//  console.log('\thello my local name is:');
+//  console.log('\t\t' + peripheral.advertisement.localName);
+//  console.log('\tcan I interest you in any of the following advertised services:');
+//  console.log('\t\t' + JSON.stringify(peripheral.advertisement.serviceUuids));
 
   var serviceData = peripheral.advertisement.serviceData;
   if (serviceData && serviceData.length) {

@@ -23,7 +23,7 @@ noble.on('discover', function(peripheral) {
 		        console.log('discovered the following characteristics:');
 		        for (var i in characteristics) {
 		          console.log('  ' + i + ' uuid: ' + characteristics[i].uuid);
-		          if (characteristics[i].uuid == '2a00') {
+		          if (characteristics[i].uuid == '2a00') { 
 			          var manufacturerNameCharacteristic = characteristics[i];
 			          console.log('discovered manufacturer name characteristic');
 	

@@ -13,15 +13,20 @@ noble.on('stateChange', function(state) {
 });
 
 noble.on('discover', function(peripheral) {
-	peripheral.connect(function(error) {
-	    console.log('connected to peripheral: ' + peripheral.uuid);
-	    peripheral.discoverServices(null, function(error, services) {
-	      console.log('discovered the following services:');
-	      for (var i in services) {
-	        console.log('  ' + i + ' uuid: ' + services[i].uuid);
-	      }
-	    });
-	  });
+	  peripheral.connect(function(error) {
+		    console.log('connected to peripheral: ' + peripheral.uuid);
+		    peripheral.discoverServices(null, function(error, services) {
+		      var deviceInformationService = services[0];
+		      console.log('discovered device information service');
+
+		      deviceInformationService.discoverCharacteristics(null, function(error, characteristics) {
+		        console.log('discovered the following characteristics:');
+		        for (var i in characteristics) {
+		          console.log('  ' + i + ' uuid: ' + characteristics[i].uuid);
+		        }
+		      });
+		    });
+		  });
 	
 //  console.log('peripheral discovered (' + peripheral.id +
 //              ' with address <' + peripheral.address +  ', ' + peripheral.addressType + '>,' +

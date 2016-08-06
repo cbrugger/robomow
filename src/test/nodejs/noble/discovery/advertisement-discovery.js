@@ -1,4 +1,4 @@
-var noble = require('index');
+var noble = require('../index');
 
 noble.on('stateChange', function(state) {
   if (state === 'poweredOn') {

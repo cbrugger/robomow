@@ -9,7 +9,7 @@ noble.on('stateChange', function(state) {
 });
 
 noble.on('discover', function(peripheral) {
-	console.log(JSON.stringify(peripheral));
+	console.log('peripheral: ' + JSON.stringify(peripheral));
 	
 //  console.log('peripheral discovered (' + peripheral.id +
 //              ' with address <' + peripheral.address +  ', ' + peripheral.addressType + '>,' +

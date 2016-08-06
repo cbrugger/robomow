@@ -5,8 +5,8 @@ var allowDuplicates = false;
 
 noble.on('stateChange', function(state) {
   if (state === 'poweredOn') {
-	noble.startScanning();
-//    noble.startScanning(serviceUuids, allowDuplicates);
+//	noble.startScanning();
+    noble.startScanning(serviceUuids, allowDuplicates);
   } else {
     noble.stopScanning();
   }

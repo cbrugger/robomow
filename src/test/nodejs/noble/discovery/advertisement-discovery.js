@@ -8,6 +8,10 @@ noble.on('stateChange', function(state) {
   }
 });
 
+noble.on('characteristicsDiscover', function(characteristic) {
+	console.log('peripheral discovered (' + JSON.stringify(characteristic) + ');
+}
+
 noble.on('discover', function(peripheral) {
   console.log('peripheral discovered (' + peripheral.id +
               ' with address <' + peripheral.address +  ', ' + peripheral.addressType + '>,' +
